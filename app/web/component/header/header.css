@@ -1,0 +1,33 @@
+
+@import "../../asset/css/publicpack.css";
+@import "../../asset/css/cinema.css";
+
+#topbar dl{
+  margin: 0;
+}
+
+#topbar dd {
+  margin: 0;
+}
+
+#headImgDiv .textbox h3 {
+  color: #fff
+}
+
+.i_newsimgs dl {
+  margin: 0;
+}
+
+.textbox a {
+  color: #fff;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #fff !important;
+  text-decoration: underline;
+}
+
+*, *::before, *::after {
+  box-sizing: unset !important;
+}
