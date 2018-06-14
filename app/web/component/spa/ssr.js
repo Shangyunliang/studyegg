@@ -1,40 +1,55 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
-import Home from 'component/spa/components/home';
-import About from 'component/spa/components/about';
+import SearchBar from 'component/searchbar/searchBar';
+import Footer from 'component/footer/footer'
+import ClassSelect from './components/classSelect'
+import FirstCard from './components/firstCard'
+import OtherCard from './components/otherCard'
+import UpComing from './components/upComing'
+import FilmTip from './components/filmTip'
 
 import { Menu, Icon } from 'antd';
-
-const tabKey = { '/spa/': 'home', '/spa/about': 'about' };
 class App extends Component {
-  constructor(props) {
-    super(props);
-    const { url } = props;
-    this.state = { current: tabKey[url] };
-  }
-
-  handleClick(e) {
-    console.log('click ', e, this.state);
-    this.setState({
-      current: e.key
-    });
-  }
-
   render() {
-    return <div>
-      <Menu onClick={this.handleClick.bind(this)} selectedKeys={[this.state.current]} mode="horizontal">
-        <Menu.Item key="home">
-          <Link to="/">SPA-Redux-Server-Side-Render</Link>
-        </Menu.Item>
-        <Menu.Item key="about">
-          <Link to="/about">About</Link>
-        </Menu.Item>
-      </Menu>
-      <Switch>
-        <Route path="/about" component={About}/>
-        <Route path="/" component={Home}/>
-      </Switch>
+    return <div className="filmcon">
+      <div className="isthefilm">
+        <SearchBar />
+        <div className="isthebox">
+          <ClassSelect />
+          <div id="hotplayContent">
+            <div>
+              <div class="moviebox clearfix">
+                  <div class="firstmovie fl">
+                    <FirstCard />
+                  </div>
+                  <div class="othermovie fr">
+                    <ul class="clearfix">
+                    <OtherCard/><OtherCard/><OtherCard/>
+                    <OtherCard/><OtherCard/><OtherCard/>
+                    </ul>
+                  </div>
+              </div>
+            </div>
+            <div id="hotplayMoreDiv" class="moviemore">
+                <div class="othermovie">
+                  <ul class="clearfix">
+                  <OtherCard/><OtherCard/><OtherCard/>
+                  <OtherCard/><OtherCard/><OtherCard/>
+                  </ul>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className="upcoming" id="backHere">
+        <div className="title">
+            <h2>即将上映 －6月15日~9月12日 </h2>
+        </div>
+        <UpComing />
+      </div>
+      <FilmTip />
+      <Footer />
     </div>;
   }
 }

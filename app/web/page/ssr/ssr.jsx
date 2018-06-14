@@ -11,16 +11,17 @@ import SSR from 'component/spa/ssr';
 import { create } from 'component/spa/store';
 import routes from 'component/spa/routes'
 
-// <Provider store={ store }>
-//   <BrowserRouter>
-//     <SSR url={ url }/>
-//   </BrowserRouter>
-// </Provider>
+
 const clientRender = () => {
   const store = create(window.__INITIAL_STATE__);
   const url = store.getState().url;
   const Entry = () => (<div>
     <Header></Header>
+    <Provider store={ store }>
+      <BrowserRouter>
+        <SSR url={ url }/>
+      </BrowserRouter>
+    </Provider>
   </div>
   );
   const render = (App)=>{
@@ -50,6 +51,11 @@ const serverRender = (context, options)=> {
       <Layout>
         <div>
           <Header></Header>
+          <Provider store={store}>
+            <StaticRouter location={url} context={{}}>
+              <SSR url={url}/>
+            </StaticRouter>
+          </Provider>
         </div>
       </Layout>
     )
@@ -57,10 +63,6 @@ const serverRender = (context, options)=> {
 };
 
 
-// <Provider store={store}>
-//   <StaticRouter location={url} context={{}}>
-//     <SSR url={url}/>
-//   </StaticRouter>
-// </Provider>
+
 
 export default EASY_ENV_IS_NODE ?  serverRender : clientRender();

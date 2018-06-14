@@ -3,6 +3,11 @@ exports.cors = {
   package: 'egg-cors'
 };
 
+exports.mysql = {
+  enable: true,
+  package: 'egg-mysql',
+};
+
 exports.webpack = {
   enable: true,
   package: 'egg-webpack'

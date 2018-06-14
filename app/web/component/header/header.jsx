@@ -2,19 +2,31 @@ import React, {
   Component
 } from 'react';
 import './header.css';
-import Back from '../../asset/images/zhuoluojiback.jpg'
+
 export default class Header extends Component {
 
   constructor(){
     super()
     this.state = {
+      data: [{
+        key: 1,
+        name: '《侏罗纪世界2》',
+        backgroundurl: '../../asset/images/zhuoluojiback.jpg',
+        fonturl: '../../asset/images/zhuoluojifont.jpg',
+        style: {opacity: 1},
+      },{
+        key: 2,
+        name: '《复仇者联盟3》',
+        backgroundurl: '../../asset/images/fulianback.jpg',
+        fonturl: '../../asset/images/fulianfont.jpg',
+        style: {opacity: 0},
+      }],
       block: [{opacity: 1}, {opacity: 1, zIndex: 3}],
       none: [{opacity: 0}, {opacity: 0, zIndex: 1}],
     }
   }
 
   componentDidMount() {
-    console.log(Back);
     let i = 0
     setInterval(() => {
       if(i % 2 == 0) {
@@ -47,16 +59,16 @@ export default class Header extends Component {
   render() {
     return <div className="movie-header"><div id="topbar" pn="M16_HeadNav" className="fixed">
       <div className="headbar" id="headbar">
-        <h1 onclick="headTrackClick('M16_HeadNav_MiddleNav')" pan="M16_HeadNav_MiddleNav"><a title="Mtime时光网" href="http://www.mtime.com">Mtime时光网</a></h1>
+        <h1 pan="M16_HeadNav_MiddleNav"><a title="Mtime时光网" href="http://www.mtime.com">Mtime时光网</a></h1>
         <dl className="headbarnav">
-          <dd className=""><a href="http://www.mtime.com/" onclick="headTrackClick('M16_HeadNav_LeftNav_Index')" pan="M16_HeadNav_LeftNav_Index">首页<i></i></a></dd>
-          <dd className="cur"><a href="http://theater.mtime.com/" onclick="headTrackClick('M16_HeadNav_LeftNav_Theater')" pan="M16_HeadNav_LeftNav_Theater">购票<i></i></a></dd>
-          <dd className=""><a href="http://mall.mtime.com/" onclick="headTrackClick('M16_HeadNav_LeftNav_Mall')" pan="M16_HeadNav_LeftNav_Mall">正版商城<i></i></a></dd>
-          <dd className=""><a href="http://news.mtime.com/" onclick="headTrackClick('M16_HeadNav_LeftNav_News')" pan="M16_HeadNav_LeftNav_News">新闻<i></i></a></dd>
-          <dd className=""><a href="http://live.mtime.com/" onclick="headTrackClick('M16_HeadNav_LeftNav_Live')" pan="M16_HeadNav_LeftNav_Live">直播<i></i><em>NEW</em></a></dd>
-          <dd className=""><a href="http://movie.mtime.com/" onclick="headTrackClick('M16_HeadNav_LeftNav_Recent')" pan="M16_HeadNav_LeftNav_Recent">发现<i></i></a></dd>
-          <dd className=""><a href="http://www.mtime.com/community/" onclick="headTrackClick('M16_HeadNav_LeftNav_Community')" pan="M16_HeadNav_LeftNav_Community">社区<i></i></a></dd>
-          <dd className=""><a href="http://vip.mtime.com/" onclick="headTrackClick('M17_HeadNav_LeftNav_Vip')" pan="M17_HeadNav_LeftNav_Vip">会员<i></i></a></dd>
+          <dd className=""><a href="http://www.mtime.com/"  pan="M16_HeadNav_LeftNav_Index">首页<i></i></a></dd>
+          <dd className="cur"><a href="http://theater.mtime.com/"  pan="M16_HeadNav_LeftNav_Theater">购票<i></i></a></dd>
+          <dd className=""><a href="http://mall.mtime.com/"  pan="M16_HeadNav_LeftNav_Mall">正版商城<i></i></a></dd>
+          <dd className=""><a href="http://news.mtime.com/"  pan="M16_HeadNav_LeftNav_News">新闻<i></i></a></dd>
+          <dd className=""><a href="http://live.mtime.com/"  pan="M16_HeadNav_LeftNav_Live">直播<i></i><em>NEW</em></a></dd>
+          <dd className=""><a href="http://movie.mtime.com/" pan="M16_HeadNav_LeftNav_Recent">发现<i></i></a></dd>
+          <dd className=""><a href="http://www.mtime.com/community/" pan="M16_HeadNav_LeftNav_Community">社区<i></i></a></dd>
+          <dd className=""><a href="http://vip.mtime.com/" pan="M17_HeadNav_LeftNav_Vip">会员<i></i></a></dd>
         </dl>
       </div>
     </div>
@@ -71,8 +83,8 @@ export default class Header extends Component {
     </ul>
 
     <div id="headImgDotSlidesRegion" className="i_newsnav">
-    	<a href="#" className="on" onclick="return false;">1</a>
-        <a href="#" onclick="return false;" className="">2</a>
+    	<a href="#" className="on" >1</a>
+        <a href="#" className="">2</a>
     </div>
     <div className="i_newsimgs">
         <div className="dl">
@@ -109,3 +121,19 @@ export default class Header extends Component {
     </div>
   }
 }
+
+
+
+// <div className="swiper-container">
+//   <div className="swiper-wrapper">
+//       <div className="swiper-slide">Slide 1</div>
+//       <div className="swiper-slide">Slide 2</div>
+//       <div className="swiper-slide">Slide 3</div>
+//   </div>
+//   <div className="swiper-pagination"></div>
+//
+//   <div className="swiper-button-prev"></div>
+//   <div className="swiper-button-next"></div>
+//
+//   <div className="swiper-scrollbar"></div>
+// </div>
