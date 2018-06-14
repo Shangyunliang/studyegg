@@ -2,6 +2,7 @@ import React, {
   Component
 } from 'react';
 import './header.css';
+import Back from '../../asset/images/zhuoluojiback.jpg'
 export default class Header extends Component {
 
   constructor(){
@@ -13,6 +14,7 @@ export default class Header extends Component {
   }
 
   componentDidMount() {
+    console.log(Back);
     let i = 0
     setInterval(() => {
       if(i % 2 == 0) {
@@ -64,8 +66,8 @@ export default class Header extends Component {
     <a href="#" id="headImgNext" className="nextnews" title="下一篇"><i></i></a>
 
     <ul id="headImgBackSlidesRegion" className="bgimg">
-    	<li style={{backgroundImage: "url('http://img5.mtime.cn/mg/2018/06/12/145232.98799165.jpg')", ...this.state.block[1], backgroundRepeat: 'no-repeat'}} className="transition3"></li>
-    	<li style={{backgroundImage: "url('http://img5.mtime.cn/mg/2018/05/11/094030.45344019.jpg')", ...this.state.none[1], backgroundRepeat: 'no-repeat'}} className="transition3"></li>
+    	<li style={{backgroundImage: `url(${require('../../asset/images/zhuoluojiback.jpg')})`, ...this.state.block[1], backgroundRepeat: 'no-repeat'}} className="transition3"></li>
+    	<li style={{backgroundImage: `url(${require('../../asset/images/fulianback.jpg')})`, ...this.state.none[1], backgroundRepeat: 'no-repeat'}} className="transition3"></li>
     </ul>
 
     <div id="headImgDotSlidesRegion" className="i_newsnav">
@@ -94,11 +96,11 @@ export default class Header extends Component {
             <dl id="headImgSlidesRegion" className="clearfix">
                 <dd style={this.state.block[1]} className="transition8 __r_c_" pan="M14_TheaterIndex_HeadImg1">
                     <h2>《侏罗纪世界2》</h2>
-                    <a href="http://movie.mtime.com/225759/" title="《侏罗纪世界2》" target="_blank"><img src="http://img5.mtime.cn/mg/2018/06/12/145226.42060796.jpg" width="1000" height="390" alt="《侏罗纪世界2》"></img></a>
+                    <a href="http://movie.mtime.com/225759/" title="《侏罗纪世界2》" target="_blank"><img src={require('../../asset/images/zhuoluojifont.jpg')} width="1000" height="390" alt="《侏罗纪世界2》"></img></a>
                 </dd>
                 <dd style={this.state.none[1]} className="transition8 __r_c_" pan="M14_TheaterIndex_HeadImg2">
                     <h2>《复仇者联盟3》</h2>
-                    <a href="http://movie.mtime.com/217497/" title="《复仇者联盟3》" target="_blank"><img src="http://img5.mtime.cn/mg/2018/05/11/094023.33962241.jpg" width="1000" height="390" alt="《复仇者联盟3》"></img></a>
+                    <a href="http://movie.mtime.com/217497/" title="《复仇者联盟3》" target="_blank"><img src={require('../../asset/images/fulianfont.jpg')} width="1000" height="390" alt="《复仇者联盟3》"></img></a>
                 </dd>
             </dl>
           </div>
