@@ -7,19 +7,38 @@ export default class Header extends Component {
   constructor(){
     super()
     this.state = {
-      block: [{opacity: 1, display: 'block'}, {opacity: 1, zIndex: 3}],
-      none: [{opacity: 0, display: 'none'}, {opacity: 0, zIndex: 1}],
+      block: [{opacity: 1}, {opacity: 1, zIndex: 3}],
+      none: [{opacity: 0}, {opacity: 0, zIndex: 1}],
     }
   }
 
   componentDidMount() {
+    let i = 0
     setInterval(() => {
-      console.log('aaaaaa');
-      const block = [...this.state.block]
-      this.setState({
-        block: [...this.state.none],
-        none: [...block]
-      })
+      if(i % 2 == 0) {
+        this.setState({
+          block: [{opacity: 0}, {opacity: 0, zIndex: 1}],
+          none: [{opacity: 0}, {opacity: 1, zIndex: 3}],
+        })
+        setTimeout(()=> {
+          this.setState({
+            block: [{opacity: 0}, {opacity: 0, zIndex: 1}],
+            none: [{opacity: 1}, {opacity: 1, zIndex: 3}]
+          })
+        }, 600)
+      }else {
+        this.setState({
+          block: [{opacity: 0}, {opacity: 1, zIndex: 3}],
+          none: [{opacity: 0}, {opacity: 0, zIndex: 1}],
+        })
+        setTimeout(()=> {
+          this.setState({
+            block: [{opacity: 1}, {opacity: 1, zIndex: 3}],
+            none: [{opacity: 0}, {opacity: 0, zIndex: 1}]
+          })
+        }, 600)
+      }
+      i = i + 1
     }, 5000)
   }
 
