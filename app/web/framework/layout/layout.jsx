@@ -13,6 +13,7 @@ export default class Layout extends Component {
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"></link>
         <link rel="stylesheet" href="/public/css/publicpack.css"></link>
         <link rel="stylesheet" href="/public/css/cinema.css"></link>
+        <link rel="stylesheet" href="/public/css/ticket.css"></link>
         <link rel="stylesheet" href="/public/js/swiper-4.3.3.min.css"></link>
       </head>
       <body style={{paddingTop: '60px'}}>

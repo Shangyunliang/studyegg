@@ -1,5 +1,6 @@
-import Home from 'component/spa/components/home';
-import About from 'component/spa/components/about';
+import HomePage from 'component/spa/components/homePage';
+import SelectSeatPage from 'component/spa/components/selectSeatPage';
+
 const NotFound = () => {
   return (
     <Route render={({ staticContext }) => {
@@ -14,14 +15,15 @@ const NotFound = () => {
     }}/>
   );
 };
+
 const routes = [
   {
     path: '/',
-    component: Home
+    component: HomePage
   },
   {
-    path: '/about',
-    component: Home
+    path: '/onlineticket',
+    component: SelectSeatPage
   },
   {
     path: '*',
