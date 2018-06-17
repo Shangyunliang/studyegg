@@ -9,54 +9,89 @@ export default class Header extends Component {
     super()
     this.state = {
       data: [{
-        key: 1,
+        key: 0,
         name: '《侏罗纪世界2》',
-        backgroundurl: '../../asset/images/zhuoluojiback.jpg',
-        fonturl: '../../asset/images/zhuoluojifont.jpg',
-        style: {opacity: 1},
+        backgroundurl: require('../../asset/images/zhuoluojiback.jpg'),
+        fonturl: require('../../asset/images/zhuoluojifont.jpg'),
       },{
-        key: 2,
+        key: 1,
         name: '《复仇者联盟3》',
-        backgroundurl: '../../asset/images/fulianback.jpg',
-        fonturl: '../../asset/images/fulianfont.jpg',
-        style: {opacity: 0},
+        backgroundurl: require('../../asset/images/fulianback.jpg'),
+        fonturl: require('../../asset/images/fulianfont.jpg'),
       }],
-      block: [{opacity: 1}, {opacity: 1, zIndex: 3}],
-      none: [{opacity: 0}, {opacity: 0, zIndex: 1}],
+      current: 0,
+      interval: 0,
     }
   }
 
+  handleLeft = () => {
+    clearInterval(this.state.interval)
+    let { data, current } = this.state
+    let len = data.length
+    if(current - 1 < 0) {
+      current = len - 1
+    }else {
+      current = current - 1
+    }
+    this.opacityInfo()
+    this.setState({current, data})
+  }
+
+  handleRight = () => {
+    clearInterval(this.state.interval)
+    let { data, current } = this.state
+    let len = data.length
+    if(current + 1 > len - 1) {
+      current = 0
+    }else {
+      current = current + 1
+    }
+    this.opacityInfo()
+    this.setState({current, data})
+  }
+
+  opacityInfo = () => {
+    setTimeout(() => {
+      let { data, current } = this.state
+      data = data.map((film, index) => {
+        if(current === film.key) {
+          film.info = {opacity: 1}
+        }else {
+          film.info = {opacity: 0}
+        }
+        return film
+      })
+      this.setState({data})
+    }, 600)
+    const id = setInterval(this.handleLeft, 5000)
+    this.setState({interval: id})
+  }
+
+
+
   componentDidMount() {
-    let i = 0
-    setInterval(() => {
-      if(i % 2 == 0) {
-        this.setState({
-          block: [{opacity: 0}, {opacity: 0, zIndex: 1}],
-          none: [{opacity: 0}, {opacity: 1, zIndex: 3}],
-        })
-        setTimeout(()=> {
-          this.setState({
-            block: [{opacity: 0}, {opacity: 0, zIndex: 1}],
-            none: [{opacity: 1}, {opacity: 1, zIndex: 3}]
-          })
-        }, 600)
-      }else {
-        this.setState({
-          block: [{opacity: 0}, {opacity: 1, zIndex: 3}],
-          none: [{opacity: 0}, {opacity: 0, zIndex: 1}],
-        })
-        setTimeout(()=> {
-          this.setState({
-            block: [{opacity: 1}, {opacity: 1, zIndex: 3}],
-            none: [{opacity: 0}, {opacity: 0, zIndex: 1}]
-          })
-        }, 600)
-      }
-      i = i + 1
-    }, 5000)
+    const { interval } = this.state
+    if(interval) {
+      clearInterval(interval)
+    }
+    const id = setInterval(this.handleLeft, 5000)
+    this.setState({interval: id})
   }
 
   render() {
+    let { data, current } = this.state
+    data = data.map((film, index) => {
+      if(current === film.key) {
+        film.styles = {opacity: 1}
+        film.on = true
+      }else {
+        film.styles = {opacity: 0}
+        film.info = {opacity: 0}
+        film.on = false
+      }
+      return film
+    })
+
     return <div className="movie-header"><div id="topbar" pn="M16_HeadNav" className="fixed">
       <div className="headbar" id="headbar">
         <h1 pan="M16_HeadNav_MiddleNav"><a title="Mtime时光网" href="http://www.mtime.com">Mtime时光网</a></h1>
@@ -74,66 +109,52 @@ export default class Header extends Component {
     </div>
     <div id="headImgDiv" className="i_newshead">
 
-    <a href="#" id="headImgPre" className="lastnews" title="上一篇"><i></i></a>
-    <a href="#" id="headImgNext" className="nextnews" title="下一篇"><i></i></a>
+    <a onClick={this.handleLeft} id="headImgPre" className="lastnews" title="上一篇"><i></i></a>
+    <a onClick={this.handleRight} id="headImgNext" className="nextnews" title="下一篇"><i></i></a>
 
     <ul id="headImgBackSlidesRegion" className="bgimg">
-    	<li style={{backgroundImage: `url(${require('../../asset/images/zhuoluojiback.jpg')})`, ...this.state.block[1], backgroundRepeat: 'no-repeat'}} className="transition3"></li>
-    	<li style={{backgroundImage: `url(${require('../../asset/images/fulianback.jpg')})`, ...this.state.none[1], backgroundRepeat: 'no-repeat'}} className="transition3"></li>
+      {
+        data.map(f => {
+          return <li key={f.key} style={{backgroundImage: `url(${f.backgroundurl})`, backgroundRepeat: 'no-repeat', ...f.styles}} className="transition3"></li>
+        })
+      }
     </ul>
 
     <div id="headImgDotSlidesRegion" className="i_newsnav">
-    	<a href="#" className="on" >1</a>
-        <a href="#" className="">2</a>
+      {
+        data.map(f => {
+          return <a key={f.key} href="#" onClick="" className={f.on ? 'on' : null}>{f.key + 1}</a>
+        })
+      }
     </div>
     <div className="i_newsimgs">
         <div className="dl">
-            <div id="headImgTxtSlidesRegion" className="i_newstitbox">
-                <div className="textbox transition4 transition6 __r_c_" style={this.state.block[0]} pan="M14_TheaterIndex_HeadImg1">
-                    <span className="hotfilm beginhot">即将上映</span>
-                    <h2><a href="http://movie.mtime.com/225759/" target="_blank" style={{}}>《侏罗纪世界2》</a></h2>
-                    <h3>6月15日 - 全国上映</h3>
-                    <p className="textinfo"><span mid="225759" method="want"> 8650人想看</span> - <a href="http://movie.mtime.com/movie/search/section/?type=Action" target="_blank" style={{}}>动作</a>/<a href="http://movie.mtime.com/movie/search/section/?type=Adventure" target="_blank" style={{}}>冒险</a><span mid="225759" method="upcoming"> - 北京446家影院超前预售</span></p>
-                    <p className="morelink"><a href="http://movie.mtime.com/225759/" target="_blank" style={{}}><span className="icon-add"><em>+</em></span>查看详情</a></p>
-                </div>
-                <div className="textbox transition4 transition6 __r_c_" style={this.state.none[0]} pan="M14_TheaterIndex_HeadImg2">
-                    <span className="hotfilm">正在热映</span>
-                    <h2><a href="http://movie.mtime.com/217497/" target="_blank" style={{}}>《复仇者联盟3》</a></h2>
-                    <p className="textinfo">150分钟 - <a href="http://movie.mtime.com/movie/search/section/?type=Action" target="_blank" style={{}}>动作</a>/<a href="http://movie.mtime.com/movie/search/section/?type=Adventure" target="_blank" style={{}}>冒险</a><span mid="217497" method="hotplay"> - 北京106家影院上映439场</span></p>
-                    <p className="textinfo"><i className="ico_ydot"></i><a href="http://movie.mtime.com/217497/" target="_blank" style={{}}>复联全员与灭霸巅峰一役引人注目</a></p>
-                    <p className="morelink"><a href="http://movie.mtime.com/217497/" target="_blank" style={{}}><span className="icon-add"><em>+</em></span>查看详情</a></p>
-                </div>
-            </div>
-
-            <dl id="headImgSlidesRegion" className="clearfix">
-                <dd style={this.state.block[1]} className="transition8 __r_c_" pan="M14_TheaterIndex_HeadImg1">
-                    <h2>《侏罗纪世界2》</h2>
-                    <a href="http://movie.mtime.com/225759/" title="《侏罗纪世界2》" target="_blank"><img src={require('../../asset/images/zhuoluojifont.jpg')} width="1000" height="390" alt="《侏罗纪世界2》"></img></a>
-                </dd>
-                <dd style={this.state.none[1]} className="transition8 __r_c_" pan="M14_TheaterIndex_HeadImg2">
-                    <h2>《复仇者联盟3》</h2>
-                    <a href="http://movie.mtime.com/217497/" title="《复仇者联盟3》" target="_blank"><img src={require('../../asset/images/fulianfont.jpg')} width="1000" height="390" alt="《复仇者联盟3》"></img></a>
-                </dd>
-            </dl>
+          <div id="headImgTxtSlidesRegion" className="i_newstitbox">
+          {
+            data.map(f => {
+              return <div key={f.key} className="textbox transition4 transition6 __r_c_" style={f.info} pan="M14_TheaterIndex_HeadImg1">
+                      <span className="hotfilm beginhot">即将上映</span>
+                      <h2><a href="http://movie.mtime.com/225759/" target="_blank" style={{}}>{f.name}</a></h2>
+                      <h3>6月15日 - 全国上映</h3>
+                      <p className="textinfo"><span mid="225759" method="want"> 8650人想看</span> - <a href="http://movie.mtime.com/movie/search/section/?type=Action" target="_blank" style={{}}>动作</a>/<a href="http://movie.mtime.com/movie/search/section/?type=Adventure" target="_blank" style={{}}>冒险</a><span mid="225759" method="upcoming"> - 北京446家影院超前预售</span></p>
+                      <p className="morelink"><a href="http://movie.mtime.com/225759/" target="_blank" style={{}}><span className="icon-add"><em>+</em></span>查看详情</a></p>
+                  </div>
+            })
+          }
           </div>
+          <dl id="headImgSlidesRegion" className="clearfix">
+            {
+              data.map(f => {
+                return <dd key={f.key} style={f.styles} className="transition8 __r_c_" pan="M14_TheaterIndex_HeadImg1">
+                        <h2>{f.name}</h2>
+                        <a href="http://movie.mtime.com/225759/" title="《侏罗纪世界2》" target="_blank"><img src={f.fonturl} width="1000" height="390" alt={f.name}></img></a>
+                    </dd>
+              })
+            }
+          </dl>
+        </div>
         </div>
       </div>
     </div>
   }
 }
-
-
-
-// <div className="swiper-container">
-//   <div className="swiper-wrapper">
-//       <div className="swiper-slide">Slide 1</div>
-//       <div className="swiper-slide">Slide 2</div>
-//       <div className="swiper-slide">Slide 3</div>
-//   </div>
-//   <div className="swiper-pagination"></div>
-//
-//   <div className="swiper-button-prev"></div>
-//   <div className="swiper-button-next"></div>
-//
-//   <div className="swiper-scrollbar"></div>
-// </div>
