@@ -1,0 +1,6 @@
+.seat_views i{
+  overflow: unset;
+  line-height: 19px;
+  margin: 0 3px 0 0;
+  font-size: 12px;
+}

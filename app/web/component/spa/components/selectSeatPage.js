@@ -15,7 +15,7 @@ export default class SelectSeatPage extends Component {
             <span className="inblock mlr15"> <i className="seat_ture v_m mr3"></i>可选座位</span> <span className="inblock mlr15">
               <i className="seat_selected v_m mr3"></i>已选座位</span> <span className="inblock mlr15">
               <i className="seat_false v_m mr3"> </i>不可选座位</span> <span className="inblock mlr15">
-              <i className="seat_lover v_m mr3"></i>情侣座位</span>
+            </span>
             </div>
             <p id="selectSeatPointOut" className="c_orange mt5 pl60 tl"></p>
           </div>
@@ -33,3 +33,6 @@ export default class SelectSeatPage extends Component {
     )
   }
 }
+
+
+// <i className="seat_lover v_m mr3"></i>情侣座位
