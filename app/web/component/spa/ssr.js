@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
 import SelectSeatPage from 'component/spa/components/selectSeatPage'
 import HomePage from 'component/spa/components/homePage'
+import CinemaPage from 'component/spa/components/cinemaPage'
 
 
 import { Menu, Icon } from 'antd';
@@ -12,6 +13,7 @@ class App extends Component {
       <Switch>
         <Route path="/ssr" exact component={HomePage}/>
         <Route path="/ssr/onlineticket" exact component={SelectSeatPage}/>
+        <Route path="/ssr/cinema" exact component={CinemaPage} />
       </Switch>
     )
   }
