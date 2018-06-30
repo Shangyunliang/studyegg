@@ -117,7 +117,7 @@ export default class SilePic extends Component {
     <div id="headImgDotSlidesRegion" className="i_newsnav">
       {
         data.map(f => {
-          return <a key={f.key} href="#" onClick="" className={f.on ? 'on' : null}>{f.key + 1}</a>
+          return <a key={f.key} href="#" onClick={()=>{}} className={f.on ? 'on' : null}>{f.key + 1}</a>
         })
       }
     </div>

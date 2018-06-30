@@ -25,22 +25,22 @@ export default class HomePage extends Component {
             <ClassSelect />
             <div id="hotplayContent">
               <div>
-                <div class="moviebox clearfix">
-                    <div class="firstmovie fl">
+                <div className="moviebox clearfix">
+                    <div className="firstmovie fl">
                       <FirstCard />
                       <Link to="/ssr/onlineticket">GOUPIAO</Link>
                     </div>
-                    <div class="othermovie fr">
-                      <ul class="clearfix">
+                    <div className="othermovie fr">
+                      <ul className="clearfix">
                       <OtherCard/><OtherCard/><OtherCard/>
                       <OtherCard/><OtherCard/><OtherCard/>
                       </ul>
                     </div>
                 </div>
               </div>
-              <div id="hotplayMoreDiv" class="moviemore">
-                  <div class="othermovie">
-                    <ul class="clearfix">
+              <div id="hotplayMoreDiv" className="moviemore">
+                  <div className="othermovie">
+                    <ul className="clearfix">
                     <OtherCard/><OtherCard/><OtherCard/>
                     <OtherCard/><OtherCard/><OtherCard/>
                     </ul>

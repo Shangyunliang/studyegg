@@ -1,21 +1,35 @@
 import React, {
   Component
 } from 'react';
+import { withRouter } from "react-router-dom";
 import Login from '../login/login'
 
+@withRouter
 export default class Header extends Component {
 
-  constructor(){
-    super()
-    this.state = {
-      cur: false,
-    }
+  state = {
+    cur: this.props.cur ? this.props.cur : 'M16_HeadNav_LeftNav_Index',
   }
 
-  headTrackClick = () => {
+  headTrackClick = (route) => () => {
     this.setState({
-      cur: !this.state.cur
+      cur: route
     })
+    switch(route){
+      case 'M16_HeadNav_LeftNav_Index':
+        return this.props.history.push('/ssr/')
+      case 'M16_HeadNav_LeftNav_Theater':
+        return this.props.history.push('/ssr/cinema')
+      case 'M16_HeadNav_User_SignIn':
+        return this.setState({
+          cur: this.state.cur === 'M16_HeadNav_User_SignIn' ? 'M16_HeadNav_User_SignIn_False' : 'M16_HeadNav_User_SignIn'
+        })
+        break;
+      case 'M16_HeadNav_User_Reg':
+        return this.props.history.push('/ssr/register')
+      default:
+        this.props.history.push('/ssr/')
+    }
   }
 
   render() {
@@ -25,8 +39,8 @@ export default class Header extends Component {
         <div className="headbar" id="headbar">
           <h1 pan="M16_HeadNav_MiddleNav"><a title="Mtime时光网" href="http://www.mtime.com">Mtime时光网</a></h1>
           <dl className="headbarnav">
-            <dd className=""><a href="http://www.mtime.com/"  pan="M16_HeadNav_LeftNav_Index">首页<i></i></a></dd>
-            <dd className="cur"><a href="http://theater.mtime.com/"  pan="M16_HeadNav_LeftNav_Theater">购票<i></i></a></dd>
+            <dd className={cur === 'M16_HeadNav_LeftNav_Index' ? 'cur' : null}><a onClick={this.headTrackClick('M16_HeadNav_LeftNav_Index')} pan="M16_HeadNav_LeftNav_Index">首页<i></i></a></dd>
+            <dd className={cur === 'M16_HeadNav_LeftNav_Theater' ? 'cur' : null}><a onClick={this.headTrackClick('M16_HeadNav_LeftNav_Theater')} pan="M16_HeadNav_LeftNav_Theater">购票<i></i></a></dd>
             <dd className=""><a href="http://mall.mtime.com/"  pan="M16_HeadNav_LeftNav_Mall">正版商城<i></i></a></dd>
             <dd className=""><a href="http://news.mtime.com/"  pan="M16_HeadNav_LeftNav_News">新闻<i></i></a></dd>
             <dd className=""><a href="http://live.mtime.com/"  pan="M16_HeadNav_LeftNav_Live">直播<i></i><em>NEW</em></a></dd>
@@ -36,12 +50,12 @@ export default class Header extends Component {
           </dl>
           <div className="headtool" id="loginbox"><i className="line"></i>
             <div className="headunlogin">
-              <a href="javascript:void(0);" onClick={this.headTrackClick} pan="M16_HeadNav_User_SignIn" className={cur ? 'cur' : ''}>登录<i></i></a>
+              <a href="javascript:void(0);" onClick={this.headTrackClick('M16_HeadNav_User_SignIn')} pan="M16_HeadNav_User_SignIn" className={cur === 'M16_HeadNav_User_SignIn' ? 'cur' : ''}>登录<i></i></a>
               <em></em>
-              <a href="javascript:void(0);" onclick="headTrackClick('M16_HeadNav_User_Reg')" pan="M16_HeadNav_User_Reg">注册</a>
+              <a href="javascript:void(0);" onClick={this.headTrackClick('M16_HeadNav_User_Reg')} pan="M16_HeadNav_User_Reg" className={cur === 'M16_HeadNav_User_Reg' ? 'cur' : ''}>注册</a>
             </div>
             {
-              cur ? <Login /> : null
+              cur === 'M16_HeadNav_User_SignIn' ? <Login /> : null
             }
           </div>
         </div>

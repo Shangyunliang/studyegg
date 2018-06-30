@@ -18,9 +18,7 @@ class SPAController extends Controller {
   }
   async login() {
     const { ctx, app } = this
-    const token = app.jwt.sign({ foo: 'bar' }, app.config.jwt.secret);
-    // console.log(token);
-    this.ctx.body = token
+    ctx.response.redirect('/ssr/register')
   }
   async success() {
     const { ctx } = this

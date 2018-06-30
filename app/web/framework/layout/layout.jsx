@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Helmet} from "react-helmet";
+import { Helmet } from "react-helmet";
 
 export default class Layout extends Component {
   render() {
@@ -13,7 +13,7 @@ export default class Layout extends Component {
         <meta name="description" content={this.props.description}></meta>
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"></link>
         <link rel="stylesheet" href="/public/css/publicpack.css"></link>
-        { helmet.link.toComponent() }
+        { helmet && helmet.link.toComponent() }
         <link rel="stylesheet" href="/public/js/swiper-4.3.3.min.css"></link>
       </head>
       <body style={{paddingTop: '60px'}}>

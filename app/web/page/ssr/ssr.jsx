@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import ReactDOM from 'react-dom'
+import { renderToString, renderToStaticMarkup } from 'react-dom/server';
 import { Provider } from 'react-redux'
 import {match, RouterContext} from 'react-router'
 import { BrowserRouter, StaticRouter } from 'react-router-dom';
@@ -17,7 +18,6 @@ const clientRender = () => {
   const store = create(window.__INITIAL_STATE__);
   const url = store.getState().url;
   const Entry = () => (<div>
-    <Header></Header>
     <Provider store={ store }>
       <BrowserRouter>
         <SSR url={ url }/>
@@ -48,11 +48,25 @@ const serverRender = (context, options)=> {
     });
     context.state = Object.assign({}, context.state, initState);
     const store = create(initState);
+
+    // Helmet 必须在renderToString 方法执行后才可以执行
+    const string = renderToString((
+      <Layout>
+        <div>
+          <Provider store={store}>
+            <StaticRouter location={url} context={{}}>
+              <SSR url={url}/>
+            </StaticRouter>
+          </Provider>
+        </div>
+      </Layout>
+    ))
     const helmet = Helmet.renderStatic();
-    return () =>(
+
+
+    return () => (
       <Layout helmet={helmet}>
         <div>
-          <Header></Header>
           <Provider store={store}>
             <StaticRouter location={url} context={{}}>
               <SSR url={url}/>

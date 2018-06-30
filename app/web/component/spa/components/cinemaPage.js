@@ -18,8 +18,8 @@ const FilmName = () => {
 const Menu = () => {
   return (
     <div className="ci_menu">
-      <a id="msDatePrev" href="#" className="cimenu_prev" onclick="return false;">&nbsp;</a>
-      <a id="msDateNext" href="#" className="cimenu_next" onclick="return false;">&nbsp;</a>
+      <a id="msDatePrev" href="#" className="cimenu_prev" onClick={()=>{}}>&nbsp;</a>
+      <a id="msDateNext" href="#" className="cimenu_next" onClick={()=>{}}>&nbsp;</a>
       <div className="menuscroll">
         <ul id="valueDateRegion" className="clearfix transition6" style={{left: 0, width: '1380px'}}>
           <li className="curr"><a href="http://theater.mtime.com/China_Beijing/movie/225759/20180618/" target="_self">今天 &nbsp; 6月18日<i className="ico_c_jiao00">&nbsp;</i></a></li>
@@ -42,8 +42,8 @@ const CinmaCard = () => {
     <dl className="movieinfobox" cid="11835">
       <dt data-selector="favregion">
         <a href="http://theater.mtime.com/China_Beijing_Fengtai/11835/" target="_blank">星空影城（六里桥店）</a>
-        <a method="addfavorite" cid="11835" href="#" className="ico_stat " onclick="return false;">我常去</a>
-        <a method="delfavorite" cid="11835" href="#" className="ico_stat ico_end" onclick="return false;" style={{display:'none'}}>取消</a>
+        <a method="addfavorite" cid="11835" href="#" className="ico_stat " onClick={()=>{}}>我常去</a>
+        <a method="delfavorite" cid="11835" href="#" className="ico_stat ico_end" onClick={()=>{}} style={{display:'none'}}>取消</a>
       </dt>
       <dd
         className="infotxt filmicon">
@@ -55,7 +55,7 @@ const CinmaCard = () => {
         </dd>
         <dd className="tickettime" style={{display:'none'}}>
           <ul className="clearfix"></ul>
-          <p className="morelink"><a method="hideshowtime" cid="{0}" href="#" onclick="return false;"><b className="v_m">收起</b><span> ∧</span></a></p>
+          <p className="morelink"><a method="hideshowtime" cid="{0}" href="#" onClick={()=>{}}><b className="v_m">收起</b><span> ∧</span></a></p>
         </dd>
         <dd className="tickettime">
           <ul className="clearfix">
@@ -71,7 +71,7 @@ const CinmaCard = () => {
                 </div>&nbsp;<b className="trueticket">购票</b></a>
             </li>
           </ul>
-          <p className="morelink"><a method="hideshowtime" cid="{0}" href="#" onclick="return false;"><b className="v_m">收起</b><span> ∧</span></a></p>
+          <p className="morelink"><a method="hideshowtime" cid="{0}" href="#" onClick={()=>{}}><b className="v_m">收起</b><span> ∧</span></a></p>
         </dd>
     </dl>
   )

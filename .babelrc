@@ -7,8 +7,9 @@
   "plugins": [
     "react-hot-loader/babel",
     "transform-object-assign",
-     "syntax-dynamic-import",
+    "syntax-dynamic-import",
     "transform-object-rest-spread",
+    "transform-decorators-legacy",
     ["import", { libraryName: "antd", style: "css" }]],
   "comments": false
 }
