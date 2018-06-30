@@ -10,6 +10,7 @@ import Header from 'component/header/header';
 import SSR from 'component/spa/ssr';
 import { create } from 'component/spa/store';
 import routes from 'component/spa/routes'
+import {Helmet} from "react-helmet";
 
 
 const clientRender = () => {
@@ -47,8 +48,9 @@ const serverRender = (context, options)=> {
     });
     context.state = Object.assign({}, context.state, initState);
     const store = create(initState);
+    const helmet = Helmet.renderStatic();
     return () =>(
-      <Layout>
+      <Layout helmet={helmet}>
         <div>
           <Header></Header>
           <Provider store={store}>

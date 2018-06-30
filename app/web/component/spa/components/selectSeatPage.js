@@ -1,10 +1,14 @@
 import React, { Component } from 'react';
+import {Helmet} from "react-helmet";
 import SelectSeat from 'component/selectSeat/selectSeat';
 
 export default class SelectSeatPage extends Component {
   render() {
     return (
       <div className="ticket_cont clearfix">
+        <Helmet>
+          <link rel="stylesheet" href="/public/css/ticket.css"></link>
+        </Helmet>
         <div id="LeftContentRegion">
           <div className="ticket_left">
             <div className="seat_screen"> 美嘉欢乐影城三里屯店&nbsp;17TV(巨幕厅)

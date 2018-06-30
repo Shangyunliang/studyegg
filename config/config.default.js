@@ -23,5 +23,9 @@ module.exports = app => {
     'access'
   ];
 
+  exports.jwt = {
+    secret: "123456"
+  };
+
   return exports;
 };

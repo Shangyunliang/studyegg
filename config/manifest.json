@@ -3,10 +3,13 @@
   "ssr.css": "/public/css/ssr.css",
   "layout.js": "/public/js/layout.js",
   "common.js": "/public/js/common.js",
+  "img/zhuoluojifont.jpg": "/public/img/zhuoluojifont.jpg",
+  "img/dongwushijieback.jpg": "/public/img/dongwushijieback.jpg",
   "img/fulianback.jpg": "/public/img/fulianback.jpg",
   "img/fulianfont.jpg": "/public/img/fulianfont.jpg",
   "img/zhuoluojiback.jpg": "/public/img/zhuoluojiback.jpg",
-  "img/zhuoluojifont.jpg": "/public/img/zhuoluojifont.jpg",
+  "img/dongwushijiefont.jpg": "/public/img/dongwushijiefont.jpg",
+  "img/zhuoluojiinfo.jpg": "/public/img/zhuoluojiinfo.jpg",
   "vendor.js": "/public/js/vendor.js",
   "deps": {
     "ssr.js": {

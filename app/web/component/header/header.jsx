@@ -1,101 +1,25 @@
 import React, {
   Component
 } from 'react';
+import Login from '../login/login'
 
 export default class Header extends Component {
 
   constructor(){
     super()
     this.state = {
-      data: [{
-        key: 0,
-        name: '《侏罗纪世界2》',
-        backgroundurl: require('../../asset/images/zhuoluojiback.jpg'),
-        fonturl: require('../../asset/images/zhuoluojifont.jpg'),
-      },{
-        key: 1,
-        name: '《复仇者联盟3》',
-        backgroundurl: require('../../asset/images/fulianback.jpg'),
-        fonturl: require('../../asset/images/fulianfont.jpg'),
-      }],
-      current: 0,
-      interval: 0,
+      cur: false,
     }
   }
 
-  handleLeft = () => {
-    clearTimeout(this.state.interval)
-    let { data, current } = this.state
-    let len = data.length
-    if(current - 1 < 0) {
-      current = len - 1
-    }else {
-      current = current - 1
-    }
-    this.opacityInfo()
-    this.setState({current, data})
-  }
-
-  handleRight = () => {
-    clearTimeout(this.state.interval)
-    let { data, current } = this.state
-    let len = data.length
-    if(current + 1 > len - 1) {
-      current = 0
-    }else {
-      current = current + 1
-    }
-    this.opacityInfo()
-    this.setState({current, data})
-  }
-
-  opacityInfo = () => {
-    setTimeout(() => {
-      let { data, current } = this.state
-      data = data.map((film, index) => {
-        if(current === film.key) {
-          film.info = {opacity: 1}
-        }else {
-          film.info = {opacity: 0}
-        }
-        return film
-      })
-      this.setState({data})
-    }, 600)
-    const { interval } = this.state
-    if(interval) {
-      clearTimeout(interval)
-    }
-    const id = setTimeout(this.handleLeft, 7000)
-    this.setState({interval: id})
-  }
-
-
-
-  componentDidMount() {
-    const { interval } = this.state
-    if(interval) {
-      clearTimeout(interval)
-    }
-    this.handleLeft()
-    // this.setState({interval: id})
+  headTrackClick = () => {
+    this.setState({
+      cur: !this.state.cur
+    })
   }
 
   render() {
-    console.log(this.state.interval);
-    let { data, current } = this.state
-    data = data.map((film, index) => {
-      if(current === film.key) {
-        film.styles = {opacity: 1}
-        film.on = true
-      }else {
-        film.styles = {opacity: 0}
-        film.info = {opacity: 0}
-        film.on = false
-      }
-      return film
-    })
-
+    const { cur } = this.state
     return <div className="movie-header">
       <div id="topbar" pn="M16_HeadNav" className="fixed">
         <div className="headbar" id="headbar">
@@ -110,6 +34,16 @@ export default class Header extends Component {
             <dd className=""><a href="http://www.mtime.com/community/" pan="M16_HeadNav_LeftNav_Community">社区<i></i></a></dd>
             <dd className=""><a href="http://vip.mtime.com/" pan="M17_HeadNav_LeftNav_Vip">会员<i></i></a></dd>
           </dl>
+          <div className="headtool" id="loginbox"><i className="line"></i>
+            <div className="headunlogin">
+              <a href="javascript:void(0);" onClick={this.headTrackClick} pan="M16_HeadNav_User_SignIn" className={cur ? 'cur' : ''}>登录<i></i></a>
+              <em></em>
+              <a href="javascript:void(0);" onclick="headTrackClick('M16_HeadNav_User_Reg')" pan="M16_HeadNav_User_Reg">注册</a>
+            </div>
+            {
+              cur ? <Login /> : null
+            }
+          </div>
         </div>
     </div>
     </div>

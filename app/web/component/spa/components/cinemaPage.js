@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Helmet} from "react-helmet";
 import FilmInfoCard from 'component/filmInfoCard/filmInfoCard'
 
 const FilmName = () => {
@@ -80,6 +81,9 @@ export default class CinemaPage extends Component {
   render() {
     return (
       <div className="newshowtime">
+        <Helmet>
+          <link rel="stylesheet" href="/public/css/cinema.css"></link>
+        </Helmet>
         <div className="nstimebg">&nbsp;</div>
         <div className="nstimemid">
           <div id="M14_A_MovieShowtimePage_TopBannerTG">

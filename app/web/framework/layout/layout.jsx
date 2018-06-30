@@ -3,6 +3,7 @@ import {Helmet} from "react-helmet";
 
 export default class Layout extends Component {
   render() {
+    const { helmet } = this.props
     return <html>
       <head>
         <title>{this.props.title}</title>
@@ -12,8 +13,7 @@ export default class Layout extends Component {
         <meta name="description" content={this.props.description}></meta>
         <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon"></link>
         <link rel="stylesheet" href="/public/css/publicpack.css"></link>
-        <link rel="stylesheet" href="/public/css/cinema.css"></link>
-        <link rel="stylesheet" href="/public/css/ticket.css"></link>
+        { helmet.link.toComponent() }
         <link rel="stylesheet" href="/public/js/swiper-4.3.3.min.css"></link>
       </head>
       <body style={{paddingTop: '60px'}}>

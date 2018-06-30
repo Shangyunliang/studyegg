@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {Helmet} from "react-helmet";
 import SearchBar from 'component/searchbar/searchBar';
 import Footer from 'component/footer/footer'
 import SilePic from 'component/sildePic/sildePic'
@@ -12,6 +13,10 @@ import FilmTip from 'component/spa/components/filmTip'
 export default class HomePage extends Component {
   render() {
     return <div>
+      <Helmet>
+        <link rel="stylesheet" href="/public/css/cinema.css"></link>
+        <link rel="stylesheet" href="/public/css/ticket.css"></link>
+      </Helmet>
       <SilePic />
       <div className="filmcon">
         <div className="isthefilm">

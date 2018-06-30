@@ -10,5 +10,21 @@ class SPAController extends Controller {
     const person = await app.mysql.query(`select * from userinfo`);
     ctx.body = person
   }
+  async index() {
+    const { ctx } = this
+    const token = app.jwt.sign({ foo: 'bar' }, app.config.jwt.secret);
+    // console.log(token);
+    this.ctx.body = token
+  }
+  async login() {
+    const { ctx, app } = this
+    const token = app.jwt.sign({ foo: 'bar' }, app.config.jwt.secret);
+    // console.log(token);
+    this.ctx.body = token
+  }
+  async success() {
+    const { ctx } = this
+    this.ctx.body = this.ctx.state.user
+  }
 };
 module.exports = SPAController;

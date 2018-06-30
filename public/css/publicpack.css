@@ -1574,7 +1574,7 @@ a.afalse:hover {
 }
 
 .share_tiper {
-  background: #fff url(//static1.mtime.cn/20180308112746/images/2012/new_ticket_ico.png) no-repeat right 0;
+  background: #fff url('public/img/new_ticket_ico.png') no-repeat right 0;
   border: 0;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
@@ -2544,7 +2544,7 @@ a.afalse:hover {
 }
 
 .new_btn_gray, .t_btn_blue_i, .btn_orange_n, .tip_btnbox .btn_blue, .t_btn_gray_i {
-  background: url(//static1.mtime.cn/20180308112746/images/2012/new_ticket_ico.png) no-repeat;
+  background: url('public/img/new_ticket_ico.png') no-repeat;
   width: 130px;
   height: 33px;
   border: 1px solid #c5590a;
@@ -7392,7 +7392,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 .fotlogo dt a {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) no-repeat 0 0;
+  background: url('/public/img/head.png') no-repeat 0 0;
   width: 136px;
   height: 44px;
   display: block;
@@ -8294,7 +8294,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 #headbar .selctsearch i {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) -152px 0 no-repeat;
+  background: url('/public/img/head.png') -152px 0 no-repeat;
   width: 11px;
   height: 7px
 }
@@ -8351,7 +8351,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 #headbar .topsearch a.button i {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) -115px -45px no-repeat;
+  background: url('/public/img/head.png') -115px -45px no-repeat;
   width: 19px;
   height: 19px;
   left: 50%;
@@ -8463,7 +8463,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 #headbar .showsearch .searhtiper .moviefilm .ico_map {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) -148px -150px no-repeat;
+  background: url('/public/img/head.png') -148px -150px no-repeat;
   width: 20px;
   height: 26px
 }
@@ -8557,7 +8557,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 #headbar h1 a {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) no-repeat 0 -315px;
+  background: url('/public/img/head.png') no-repeat 0 -315px;
   width: 117px;
   height: 36px;
   display: block;
@@ -8566,7 +8566,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 #headbar h1 a:hover {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) no-repeat 0 -315px;
+  background: url('/public/img/head.png') no-repeat 0 -315px;
   background-color: transparent
 }
 
@@ -8606,7 +8606,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 .headbarnav dd a em {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) -165px -28px no-repeat;
+  background: url('/public/img/head.png') -165px -28px no-repeat;
   width: 28px;
   height: 14px;
   position: absolute;
@@ -8627,7 +8627,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 .headcart .icocart {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) 0 -45px no-repeat;
+  background: url('/public/img/head.png') 0 -45px no-repeat;
   width: 26px;
   height: 20px;
   position: absolute;
@@ -8799,7 +8799,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 #headbar .logintool .code, #headbar .logintool .name, #headbar .logintool .password {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) no-repeat #f9f9f9;
+  background: url('/public/img/head.png') no-repeat #f9f9f9;
   width: 55px;
   height: 36px;
   border-right: 1px solid #d7d7d7;
@@ -8821,7 +8821,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 #headbar .logintool .ico-false {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) -60px -120px no-repeat;
+  background: url('/public/img/head.png') -60px -120px no-repeat;
   width: 13px;
   height: 13px;
   position: absolute;
@@ -8940,7 +8940,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 #headbar .logintool .usertip .ico-check, .logintool .usertip .ico-checkend {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) 0 -120px no-repeat;
+  background: url('/public/img/head.png') 0 -120px no-repeat;
   width: 27px;
   height: 27px;
   margin-right: 4px;
@@ -8985,7 +8985,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 #headbar .otherlogin a {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) no-repeat;
+  background: url('/public/img/head.png') no-repeat;
   width: 42px;
   height: 42px;
   margin: 0 13px
@@ -8996,7 +8996,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 #headbar .otherlogin a.ico-weixin:hover {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) no-repeat;
+  background: url('/public/img/head.png') no-repeat;
   width: 42px;
   height: 42px;
   margin: 0 13px;
@@ -9008,7 +9008,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 #headbar .otherlogin a.ico-qq:hover {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) no-repeat;
+  background: url('/public/img/head.png') no-repeat;
   width: 42px;
   height: 42px;
   margin: 0 13px;
@@ -9020,7 +9020,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 #headbar .otherlogin a.ico-sina:hover {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) no-repeat;
+  background: url('/public/img/head.png') no-repeat;
   width: 42px;
   height: 42px;
   margin: 0 13px;
@@ -9039,14 +9039,14 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 .headqr .ico-app {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) -54px -45px no-repeat;
+  background: url('/public/img/head.png') -54px -45px no-repeat;
   width: 13px;
   height: 20px;
   margin-right: 5px
 }
 
 .headqr b {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) -140px 0 no-repeat;
+  background: url('/public/img/head.png') -140px 0 no-repeat;
   width: 7px;
   height: 4px;
   position: absolute;
@@ -9084,7 +9084,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 .headmessage .ico-message {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) -30px -45px no-repeat;
+  background: url('/public/img/head.png') -30px -45px no-repeat;
   width: 20px;
   height: 15px;
   opacity: .7;
@@ -9109,7 +9109,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 .message-tip p em {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) -140px -5px no-repeat;
+  background: url('/public/img/head.png') -140px -5px no-repeat;
   width: 12px;
   height: 12px;
   float: right;
@@ -9134,7 +9134,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 .headlogin a b {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) -140px 0 no-repeat;
+  background: url('/public/img/head.png') -140px 0 no-repeat;
   width: 7px;
   height: 4px;
   position: absolute;
@@ -9310,7 +9310,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 .headzoom em {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) -75px -45px no-repeat;
+  background: url('/public/img/head.png') -75px -45px no-repeat;
   width: 16px;
   height: 16px;
   opacity: .7;
@@ -9384,7 +9384,7 @@ input::-ms-clear, ::-ms-reveal {
 }
 
 .message-tip .close {
-  background: url(//static1.mtime.cn/20180308112746/images/2014/head.png) -140px -5px no-repeat;
+  background: url('/public/img/head.png') -140px -5px no-repeat;
   width: 12px;
   height: 12px;
   position: absolute;
