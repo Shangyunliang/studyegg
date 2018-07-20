@@ -1,108 +1,47 @@
 import React, {
   Component
 } from 'react';
+import { withRouter } from "react-router-dom";
+import Login from '../login/login'
 
+@withRouter
 export default class Header extends Component {
 
-  constructor(){
-    super()
-    this.state = {
-      data: [{
-        key: 0,
-        name: '《侏罗纪世界2》',
-        backgroundurl: require('../../asset/images/zhuoluojiback.jpg'),
-        fonturl: require('../../asset/images/zhuoluojifont.jpg'),
-      },{
-        key: 1,
-        name: '《复仇者联盟3》',
-        backgroundurl: require('../../asset/images/fulianback.jpg'),
-        fonturl: require('../../asset/images/fulianfont.jpg'),
-      }],
-      current: 0,
-      interval: 0,
-    }
+  state = {
+    cur: this.props.cur ? this.props.cur : 'M16_HeadNav_LeftNav_Index',
   }
 
-  handleLeft = () => {
-    clearTimeout(this.state.interval)
-    let { data, current } = this.state
-    let len = data.length
-    if(current - 1 < 0) {
-      current = len - 1
-    }else {
-      current = current - 1
+  headTrackClick = (route) => () => {
+    this.setState({
+      cur: route
+    })
+    switch(route){
+      case 'M16_HeadNav_LeftNav_Index':
+        return window.location.href = '/ssr/'
+      case 'M16_HeadNav_LeftNav_Theater':
+        return window.location.href = '/ssr/cinema'
+      case 'M16_HeadNav_User_SignIn':
+        return this.setState({
+          cur: this.state.cur === 'M16_HeadNav_User_SignIn' ? 'M16_HeadNav_User_SignIn_False' : 'M16_HeadNav_User_SignIn'
+        })
+        break;
+      case 'M16_HeadNav_User_Reg':
+        return window.location.href = '/ssr/register'
+      default:
+        // this.props.history.push('/ssr/')
+        window.location.href = '/ssr/'
     }
-    this.opacityInfo()
-    this.setState({current, data})
-  }
-
-  handleRight = () => {
-    clearTimeout(this.state.interval)
-    let { data, current } = this.state
-    let len = data.length
-    if(current + 1 > len - 1) {
-      current = 0
-    }else {
-      current = current + 1
-    }
-    this.opacityInfo()
-    this.setState({current, data})
-  }
-
-  opacityInfo = () => {
-    setTimeout(() => {
-      let { data, current } = this.state
-      data = data.map((film, index) => {
-        if(current === film.key) {
-          film.info = {opacity: 1}
-        }else {
-          film.info = {opacity: 0}
-        }
-        return film
-      })
-      this.setState({data})
-    }, 600)
-    const { interval } = this.state
-    if(interval) {
-      clearTimeout(interval)
-    }
-    const id = setTimeout(this.handleLeft, 7000)
-    this.setState({interval: id})
-  }
-
-
-
-  componentDidMount() {
-    const { interval } = this.state
-    if(interval) {
-      clearTimeout(interval)
-    }
-    this.handleLeft()
-    // this.setState({interval: id})
   }
 
   render() {
-    console.log(this.state.interval);
-    let { data, current } = this.state
-    data = data.map((film, index) => {
-      if(current === film.key) {
-        film.styles = {opacity: 1}
-        film.on = true
-      }else {
-        film.styles = {opacity: 0}
-        film.info = {opacity: 0}
-        film.on = false
-      }
-      return film
-    })
-
+    const { cur } = this.state
     return <div className="movie-header">
       <div id="topbar" pn="M16_HeadNav" className="fixed">
         <div className="headbar" id="headbar">
           <h1 pan="M16_HeadNav_MiddleNav"><a title="Mtime时光网" href="http://www.mtime.com">Mtime时光网</a></h1>
           <dl className="headbarnav">
-            <dd className=""><a href="http://www.mtime.com/"  pan="M16_HeadNav_LeftNav_Index">首页<i></i></a></dd>
-            <dd className="cur"><a href="http://theater.mtime.com/"  pan="M16_HeadNav_LeftNav_Theater">购票<i></i></a></dd>
+            <dd className={cur === 'M16_HeadNav_LeftNav_Index' ? 'cur' : null}><a onClick={this.headTrackClick('M16_HeadNav_LeftNav_Index')} pan="M16_HeadNav_LeftNav_Index">首页<i></i></a></dd>
+            <dd className={cur === 'M16_HeadNav_LeftNav_Theater' ? 'cur' : null}><a onClick={this.headTrackClick('M16_HeadNav_LeftNav_Theater')} pan="M16_HeadNav_LeftNav_Theater">购票<i></i></a></dd>
             <dd className=""><a href="http://mall.mtime.com/"  pan="M16_HeadNav_LeftNav_Mall">正版商城<i></i></a></dd>
             <dd className=""><a href="http://news.mtime.com/"  pan="M16_HeadNav_LeftNav_News">新闻<i></i></a></dd>
             <dd className=""><a href="http://live.mtime.com/"  pan="M16_HeadNav_LeftNav_Live">直播<i></i><em>NEW</em></a></dd>
@@ -110,6 +49,16 @@ export default class Header extends Component {
             <dd className=""><a href="http://www.mtime.com/community/" pan="M16_HeadNav_LeftNav_Community">社区<i></i></a></dd>
             <dd className=""><a href="http://vip.mtime.com/" pan="M17_HeadNav_LeftNav_Vip">会员<i></i></a></dd>
           </dl>
+          <div className="headtool" id="loginbox"><i className="line"></i>
+            <div className="headunlogin">
+              <a href="javascript:void(0);" onClick={this.headTrackClick('M16_HeadNav_User_SignIn')} pan="M16_HeadNav_User_SignIn" className={cur === 'M16_HeadNav_User_SignIn' ? 'cur' : ''}>登录<i></i></a>
+              <em></em>
+              <a href="javascript:void(0);" onClick={this.headTrackClick('M16_HeadNav_User_Reg')} pan="M16_HeadNav_User_Reg" className={cur === 'M16_HeadNav_User_Reg' ? 'cur' : ''}>注册</a>
+            </div>
+            {
+              cur === 'M16_HeadNav_User_SignIn' ? <Login /> : null
+            }
+          </div>
         </div>
     </div>
     </div>

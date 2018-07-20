@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import {Helmet} from "react-helmet";
 import SearchBar from 'component/searchbar/searchBar';
 import Footer from 'component/footer/footer'
 import SilePic from 'component/sildePic/sildePic'
@@ -12,6 +13,10 @@ import FilmTip from 'component/spa/components/filmTip'
 export default class HomePage extends Component {
   render() {
     return <div>
+      <Helmet>
+        <link rel="stylesheet" href="/public/css/cinema.css"></link>
+        <link rel="stylesheet" href="/public/css/ticket.css"></link>
+      </Helmet>
       <SilePic />
       <div className="filmcon">
         <div className="isthefilm">
@@ -20,22 +25,22 @@ export default class HomePage extends Component {
             <ClassSelect />
             <div id="hotplayContent">
               <div>
-                <div class="moviebox clearfix">
-                    <div class="firstmovie fl">
+                <div className="moviebox clearfix">
+                    <div className="firstmovie fl">
                       <FirstCard />
                       <Link to="/ssr/onlineticket">GOUPIAO</Link>
                     </div>
-                    <div class="othermovie fr">
-                      <ul class="clearfix">
+                    <div className="othermovie fr">
+                      <ul className="clearfix">
                       <OtherCard/><OtherCard/><OtherCard/>
                       <OtherCard/><OtherCard/><OtherCard/>
                       </ul>
                     </div>
                 </div>
               </div>
-              <div id="hotplayMoreDiv" class="moviemore">
-                  <div class="othermovie">
-                    <ul class="clearfix">
+              <div id="hotplayMoreDiv" className="moviemore">
+                  <div className="othermovie">
+                    <ul className="clearfix">
                     <OtherCard/><OtherCard/><OtherCard/>
                     <OtherCard/><OtherCard/><OtherCard/>
                     </ul>

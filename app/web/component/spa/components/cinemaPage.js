@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Helmet} from "react-helmet";
 import FilmInfoCard from 'component/filmInfoCard/filmInfoCard'
 
 const FilmName = () => {
@@ -17,8 +18,8 @@ const FilmName = () => {
 const Menu = () => {
   return (
     <div className="ci_menu">
-      <a id="msDatePrev" href="#" className="cimenu_prev" onclick="return false;">&nbsp;</a>
-      <a id="msDateNext" href="#" className="cimenu_next" onclick="return false;">&nbsp;</a>
+      <a id="msDatePrev" href="#" className="cimenu_prev" onClick={()=>{}}>&nbsp;</a>
+      <a id="msDateNext" href="#" className="cimenu_next" onClick={()=>{}}>&nbsp;</a>
       <div className="menuscroll">
         <ul id="valueDateRegion" className="clearfix transition6" style={{left: 0, width: '1380px'}}>
           <li className="curr"><a href="http://theater.mtime.com/China_Beijing/movie/225759/20180618/" target="_self">今天 &nbsp; 6月18日<i className="ico_c_jiao00">&nbsp;</i></a></li>
@@ -41,8 +42,8 @@ const CinmaCard = () => {
     <dl className="movieinfobox" cid="11835">
       <dt data-selector="favregion">
         <a href="http://theater.mtime.com/China_Beijing_Fengtai/11835/" target="_blank">星空影城（六里桥店）</a>
-        <a method="addfavorite" cid="11835" href="#" className="ico_stat " onclick="return false;">我常去</a>
-        <a method="delfavorite" cid="11835" href="#" className="ico_stat ico_end" onclick="return false;" style={{display:'none'}}>取消</a>
+        <a method="addfavorite" cid="11835" href="#" className="ico_stat " onClick={()=>{}}>我常去</a>
+        <a method="delfavorite" cid="11835" href="#" className="ico_stat ico_end" onClick={()=>{}} style={{display:'none'}}>取消</a>
       </dt>
       <dd
         className="infotxt filmicon">
@@ -54,7 +55,7 @@ const CinmaCard = () => {
         </dd>
         <dd className="tickettime" style={{display:'none'}}>
           <ul className="clearfix"></ul>
-          <p className="morelink"><a method="hideshowtime" cid="{0}" href="#" onclick="return false;"><b className="v_m">收起</b><span> ∧</span></a></p>
+          <p className="morelink"><a method="hideshowtime" cid="{0}" href="#" onClick={()=>{}}><b className="v_m">收起</b><span> ∧</span></a></p>
         </dd>
         <dd className="tickettime">
           <ul className="clearfix">
@@ -70,7 +71,7 @@ const CinmaCard = () => {
                 </div>&nbsp;<b className="trueticket">购票</b></a>
             </li>
           </ul>
-          <p className="morelink"><a method="hideshowtime" cid="{0}" href="#" onclick="return false;"><b className="v_m">收起</b><span> ∧</span></a></p>
+          <p className="morelink"><a method="hideshowtime" cid="{0}" href="#" onClick={()=>{}}><b className="v_m">收起</b><span> ∧</span></a></p>
         </dd>
     </dl>
   )
@@ -80,11 +81,14 @@ export default class CinemaPage extends Component {
   render() {
     return (
       <div className="newshowtime">
+        <Helmet>
+          <link rel="stylesheet" href="/public/css/cinema.css"></link>
+        </Helmet>
         <div className="nstimebg">&nbsp;</div>
         <div className="nstimemid">
           <div id="M14_A_MovieShowtimePage_TopBannerTG">
             <div className="tc" style={{height:'45px', width:'1000px', margin:'0 auto', position:'relative'}}>
-              <div style={{position:'absolute', left:0, top:'-60px'}}><iframe src="http://static1.mtime.cn/tg/2011/2014_yingpianyingxunun_top_banner_1000x90.html" width="1000" height="90" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe></div>
+              <div style={{position:'absolute', left:0, top:'-60px'}}><iframe src="http://static1.mtime.cn/tg/2011/2014_yingpianyingxunun_top_banner_1000x90.html" width="1000" height="90" frameborder="0" border="0" marginWidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe></div>
             </div>
           </div>
           <div className="nbg_cinema">
