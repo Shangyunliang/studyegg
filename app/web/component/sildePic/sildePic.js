@@ -22,6 +22,21 @@ export default class SilePic extends Component {
         name: '《动物世界》',
         backgroundurl: require('../../asset/images/dongwushijieback.jpg'),
         fonturl: require('../../asset/images/dongwushijiefont.jpg'),
+      },{
+        key: 3,
+        name: '《邪不压正》',
+        backgroundurl: require('../../asset/images/xiebuyazhengback.jpg'),
+        fonturl: require('../../asset/images/xiebuyazhengfont.jpg'),
+      },{
+        key: 4,
+        name: '《我不是药神》',
+        backgroundurl: require('../../asset/images/wobushiyaoshenback.jpg'),
+        fonturl: require('../../asset/images/wobushiyaoshenfont.jpg'),
+      },{
+        key: 5,
+        name: '《摩天营救》',
+        backgroundurl: require('../../asset/images/motianjiuyuanback.jpg'),
+        fonturl: require('../../asset/images/motianjiuyuanfont.jpg'),
       }],
       current: 0,
       interval: 0,

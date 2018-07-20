@@ -88,7 +88,7 @@ export default class CinemaPage extends Component {
         <div className="nstimemid">
           <div id="M14_A_MovieShowtimePage_TopBannerTG">
             <div className="tc" style={{height:'45px', width:'1000px', margin:'0 auto', position:'relative'}}>
-              <div style={{position:'absolute', left:0, top:'-60px'}}><iframe src="http://static1.mtime.cn/tg/2011/2014_yingpianyingxunun_top_banner_1000x90.html" width="1000" height="90" frameborder="0" border="0" marginwidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe></div>
+              <div style={{position:'absolute', left:0, top:'-60px'}}><iframe src="http://static1.mtime.cn/tg/2011/2014_yingpianyingxunun_top_banner_1000x90.html" width="1000" height="90" frameborder="0" border="0" marginWidth="0" marginheight="0" scrolling="no" allowtransparency="true"></iframe></div>
             </div>
           </div>
           <div className="nbg_cinema">

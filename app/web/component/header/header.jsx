@@ -17,18 +17,19 @@ export default class Header extends Component {
     })
     switch(route){
       case 'M16_HeadNav_LeftNav_Index':
-        return this.props.history.push('/ssr/')
+        return window.location.href = '/ssr/'
       case 'M16_HeadNav_LeftNav_Theater':
-        return this.props.history.push('/ssr/cinema')
+        return window.location.href = '/ssr/cinema'
       case 'M16_HeadNav_User_SignIn':
         return this.setState({
           cur: this.state.cur === 'M16_HeadNav_User_SignIn' ? 'M16_HeadNav_User_SignIn_False' : 'M16_HeadNav_User_SignIn'
         })
         break;
       case 'M16_HeadNav_User_Reg':
-        return this.props.history.push('/ssr/register')
+        return window.location.href = '/ssr/register'
       default:
-        this.props.history.push('/ssr/')
+        // this.props.history.push('/ssr/')
+        window.location.href = '/ssr/'
     }
   }
 
